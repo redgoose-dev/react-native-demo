@@ -1,53 +1,60 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React, {Component} from 'react';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { Hr } from './demos/GlobalElements';
+import TextComponents from './demos/TextComponents/TextComponents';
+import Touchs from './demos/Touchs/Touchs';
+import ListViewDemo from './demos/ListView/ListViewIndex';
+import SwitchDemo from './demos/Switch/SwitchDemo';
+
 
 class reactNativeDemo extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
-  }
+
+	basicDemo() {
+		return (
+			<View style={styles.container}>
+				<TextComponents/>
+				<Hr color="#cccccc"/>
+				<Touchs/>
+			</View>
+		);
+	}
+
+	listViewDemo() {
+		return (
+			<View style={styles.contents}>
+				<ListViewDemo/>
+			</View>
+		);
+	}
+
+	switchDemo() {
+		return (
+			<SwitchDemo/>
+		);
+	}
+
+
+	render() {
+		return this.switchDemo();
+	}
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+	},
+	containerMiddle: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#F5FCFF',
+	},
+	contents: {
+		flex: 1,
+		marginTop: 22
+	}
 });
 
 AppRegistry.registerComponent('reactNativeDemo', () => reactNativeDemo);
