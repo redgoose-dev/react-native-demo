@@ -8,7 +8,7 @@ export class Hr extends Component {
 	}
 
 	defaultProps = {
-		height : 1,
+		height : StyleSheet.hairlineWidth,
 		color : '#cccccc'
 	};
 

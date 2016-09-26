@@ -5,7 +5,6 @@ const GOOSE_PATH = 'http://projects.redgoose.me/2015/goose/demo/';
 const ENDPOINT = 'http://projects.redgoose.me/2015/goose/app/first-gallery/ajax/';
 
 
-
 export default class ListViewIndex extends Component {
 
 	constructor(props) {
@@ -36,7 +35,7 @@ export default class ListViewIndex extends Component {
 	}
 
 	_onPress(event, srl) {
-		console.log(ENDPOINT + 'article/' + srl + '/');
+		this.props.goComp(1, srl);
 	};
 
 	_renderRow(rowData) {
@@ -50,6 +49,7 @@ export default class ListViewIndex extends Component {
 		return (
 			<TouchableHighlight
 				style={{ flex: 1 }}
+				underlayColor="rgba(0, 0, 0, 0.05)"
 				onPress={ (event) => this._onPress(event, parseInt(rowData.srl)) }>
 				<View style={styles.item}>
 					<Image
@@ -59,7 +59,8 @@ export default class ListViewIndex extends Component {
 					<View style={styles.itemBody}>
 						<Text style={styles.itemTitle}>{rowData.title}</Text>
 						<Text style={styles.itemDescription}>
-							<Text>{rowData.regdate}</Text>
+							<Text>srl: {rowData.srl}</Text>
+							<Text>, {rowData.regdate}</Text>
 							<Text>, Hit: {rowData.hit}</Text>
 							{like}
 						</Text>
