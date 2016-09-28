@@ -65,10 +65,11 @@ export default class ListViewDemo extends Component {
 				{this._header(route, navigator)}
 				<View style={styles.contents}>
 					{(route.index == 0) && <Index goComp={(index, srl) => {
-						let param = Object.assign({}, routes[index], {srl: srl});
-						navigator.push(param);
+						let aa = Object.assign(routes[index], {srl: srl});
+						console.log(aa);
+						navigator.push(aa);
 					}}/>}
-					{(route.index == 1) && (<Article srl={route.srl}/>)}
+					{(route.index == 1) && <Article srl={route.srl}/>}
 				</View>
 			</View>
 		);

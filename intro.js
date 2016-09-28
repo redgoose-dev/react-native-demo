@@ -1,62 +1,85 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Navigator } from 'react-native';
 
-import {Hr} from './demos/GlobalElements';
-import TextComponents from './demos/TextComponents/TextComponents';
-import Touchs from './demos/Touchs/Touchs';
-import ListViewDemo from './demos/ListView/ListViewDemo';
-import SwitchDemo from './demos/Switch/SwitchDemo';
-import StyleDemo from './demos/StyleDemo/FlexDemo';
-import WeatherDemo from './demos/WeatherDemo/WeatherDemo'
+import {Hr} from './Demos/GlobalElements';
+import Tabbar from './comps/Tabbar/Tabbar';
+import Items from './app/Items/Items';
+import CheckList from './app/CheckList/CheckList';
+import Profile from './app/Profile/Profile';
 
+const buttons = [
+	{ text: 'Items' },
+	{ text: 'Checklist' },
+	{ text: 'Profile' },
+	{ text: 'Demos' }
+];
 
-class reactNativeDemo extends Component {
+export default class reactNativeDemo extends Component {
 
-	basicDemo() {
+	constructor(props) {
+		super(props);
+		this.state = {
+			content : null
+		};
+	}
+
+	selectScene(id) {
+		switch(id) {
+			case 'Items':
+				return <Items/>;
+				break;
+			case 'Checklist':
+				return <CheckList/>;
+				break;
+			case 'Profile':
+				return <Profile/>;
+				break;
+			case 'Demos':
+				return <Text>comming</Text>;
+				break;
+			default:
+				return this.emptyComp();
+				break;
+		}
+	}
+	onSelectScene(n) {
+		this.setState({
+			content: buttons[n].text
+		});
+	}
+
+	emptyComp() {
 		return (
-			<View style={styles.basicDemo}>
-				<TextComponents/>
-				<Hr color="#cccccc"/>
-				<Touchs/>
+			<View style={css.notComp}>
+				<Text>Not component</Text>
 			</View>
 		);
-	}
-
-	listViewDemo() {
-		return ( <ListViewDemo/> );
-	}
-
-	switchDemo() {
-		return ( <SwitchDemo/> );
-	}
-
-	styleDemo() {
-		return ( <StyleDemo/> );
-	}
-
-	weatherDemo() {
-		return ( <WeatherDemo/> );
 	}
 
 	render() {
 		return (
-			<View style={styles.viewport}>
-				{ this.weatherDemo() }
+			<View style={css.viewport}>
+				<View style={css.container}>
+					{this.selectScene(this.state.content)}
+				</View>
+				<Tabbar onSelectScene={this.onSelectScene.bind(this)} active={0} buttons={buttons}/>
 			</View>
 		);
 	}
-
 }
 
-const styles = StyleSheet.create({
+const css = StyleSheet.create({
 	viewport: {
 		flex: 1,
 	},
-	basicDemo: {
+	container: {
 		flex: 1,
-		justifyContent: 'center',
 	},
+	notComp: {
+		flex: 1,
+		backgroundColor: '#fff',
+		justifyContent: 'center',
+		alignItems: 'center',
+	}
+
 });
-
-
-export default reactNativeDemo;

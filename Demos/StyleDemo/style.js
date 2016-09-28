@@ -20,7 +20,7 @@ export default styles = StyleSheet.create({
 	},
 	box: {
 		borderColor: '#11111133',
-		borderWidth: 4,
+		borderWidth: 0,
 		overflow: 'hidden',
 	},
 
