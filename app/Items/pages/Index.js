@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ListView, Image, TouchableHighlight } from 'react-native';
 
-import Navigation from './Navigation';
-import jsonData from './data.json';
-import css from './css';
+import Navigation from '../../../comps/Navigation/Navigation';
+import jsonData from '../data.js';
+import css from '../css';
 
 
 export default class Index extends Component {
@@ -33,6 +33,7 @@ export default class Index extends Component {
 	}
 
 	_renderRow(rowData, sectionID, rowID) {
+
 		return (
 			<TouchableHighlight
 				style={css.indexItem.base}
@@ -43,7 +44,7 @@ export default class Index extends Component {
 						<Image
 							style={css.indexItem.image}
 							resizeMode='cover'
-							source={{ uri: rowData.img }}/>
+							source={rowData.img}/>
 					</View>
 					<View style={css.indexItem.body}>
 						<Text style={css.indexItem.title}>{rowData.title}</Text>

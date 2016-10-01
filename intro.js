@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Navigator } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Navigator, Image } from 'react-native';
 
 import {Hr} from './Demos/GlobalElements';
 import Tabbar from './comps/Tabbar/Tabbar';
 import Items from './app/Items/Items';
-import CheckList from './app/CheckList/CheckList';
+import CheckList from './app/CheckList/containers/App';
 import Profile from './app/Profile/Profile';
 
 const buttons = [
@@ -62,7 +62,7 @@ export default class reactNativeDemo extends Component {
 				<View style={css.container}>
 					{this.selectScene(this.state.content)}
 				</View>
-				<Tabbar onSelectScene={this.onSelectScene.bind(this)} active={0} buttons={buttons}/>
+				<Tabbar onSelectScene={this.onSelectScene.bind(this)} active={1} buttons={buttons}/>
 			</View>
 		);
 	}
@@ -81,5 +81,4 @@ const css = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 	}
-
 });

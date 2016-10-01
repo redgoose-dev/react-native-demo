@@ -4,9 +4,15 @@ import { StyleSheet, Dimensions } from 'react-native';
 var {height, width} = Dimensions.get('window');
 
 export default css = {
-	index: StyleSheet.create({
+	base: StyleSheet.create({
 		viewport: {
+			flex: 1,
+			backgroundColor: '#fff',
 		},
+	}),
+
+	index: StyleSheet.create({
+		viewport: {},
 
 		avatar: {
 			backgroundColor: '#f5f5f5',
@@ -53,6 +59,7 @@ export default css = {
 
 	biography: StyleSheet.create({
 		wrap: {
+			flex: 1,
 			paddingHorizontal: 0,
 			paddingBottom: 15,
 		},
@@ -68,11 +75,12 @@ export default css = {
 		},
 		figure: {
 			flex: 1,
-			alignItems: 'center',
 		},
 		image: {
-			width: width,
-			height: 200,
+			flex: 1,
+			width: null,
+			height: 240,
+			resizeMode: 'cover',
 		},
 		body: {
 			padding: 15,

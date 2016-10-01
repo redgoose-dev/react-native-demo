@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image, ScrollView, TouchableHighlight } from 'react-native';
 
-import Navigation from './Navigation';
-import jsonData from './data.json';
-import css from './css';
-import ImageLoader from '../../comps/ImageLoader/ImageLoader';
+import Navigation from '../../../comps/Navigation/Navigation';
+import jsonData from '../data.js';
+import css from '../css';
+import ImageLoader from '../../../comps/ImageLoader/ImageLoader';
 
 
 export default class Read extends Component {
@@ -41,10 +41,9 @@ export default class Read extends Component {
 					<View style={css.read.figure}>
 						<ImageLoader
 							src={this.state.data.img}
-							css={css.read.figure__image}
 							marginWidth={24}
 							fullResize="true"
-							resizeMode="cover"/>
+							resizeMode="contain"/>
 					</View>
 					<View style={css.read.body}>
 						<Text style={css.read.bodyText}>{this.state.data.content}</Text>

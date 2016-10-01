@@ -14,7 +14,7 @@ export default css = {
 			backgroundColor: '#eee',
 		},
 		text: {
-			fontSize: 12,
+			fontSize: 13,
 			fontWeight: 'bold',
 			color: '#222',
 		},
@@ -29,15 +29,15 @@ export default css = {
 		},
 		figure: {},
 		image: {
-			width: 60,
-			height: 60,
+			width: 80,
+			height: 80,
 		},
 		body: {
 			paddingLeft: 10,
 			justifyContent: 'center'
 		},
 		title: {
-			fontSize: 13,
+			fontSize: 14,
 			fontWeight: 'bold',
 			color: '#333',
 		},
@@ -78,11 +78,11 @@ export default css = {
 			paddingVertical: 12,
 			alignItems: 'center',
 		},
-		figure__image: {
-		},
+		figure__image: {},
 
 		body: {
 			paddingHorizontal: 12,
+			paddingBottom: 50,
 		},
 		bodyText: {
 			fontSize: 14,

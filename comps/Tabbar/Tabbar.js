@@ -13,8 +13,9 @@ class Button extends Component {
 					this.props.active && css.button__active,
 				]}
 				underlayColor="rgba(0, 0, 0, 0.05)"
+				activeOpacity={1}
 				no={this.props.no}
-				onPress={this.props.onPress}>
+				onPress={(!this.props.active) ? this.props.onPress : null}>
 				<Text
 					style={[
 						css.button__text,

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Navigator } from 'react-native';
 
-import Index from './Index';
-import Read from './Read';
+import Index from './pages/Index';
+import Read from './pages/Read';
 
 
 export default class Items extends Component {
@@ -15,13 +15,11 @@ export default class Items extends Component {
 	}
 
 	onSelectItem(no, navigator) {
-		//console.log(key);
 		navigator.push({
 			index: 1,
 			title: 'read',
 			no: no
 		});
-
 	}
 
 	scene = (route, navigator) => {
@@ -54,4 +52,3 @@ export default class Items extends Component {
 		);
 	}
 }
-// initialRouteStack={routes}

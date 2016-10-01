@@ -15,17 +15,16 @@ export default class ImageLoader extends Component {
 		}
 	}
 
-	componentDidMount() {
-	}
+	componentDidMount() {}
 
 	shouldComponentUpdate(props, state) {
 		if (state.updated) return true;
 
 		let newWidth = width - (props.marginWidth || 0);
 
-		if (props.fullResize && props.src)
+		if (props.fullResize && props.src.uri)
 		{
-			Image.getSize(props.src, (w, h) => {
+			Image.getSize(props.src.uri, (w, h) => {
 				let ratio = newWidth / w;
 				this.setState({
 					width: newWidth,
@@ -34,17 +33,21 @@ export default class ImageLoader extends Component {
 				});
 			});
 		}
+		else
+		{
+			console.log(props);
+		}
 		return true;
 	}
 
 	render() {
 		return (
 			<Image
-				source={{ uri: this.props.src }}
+				source={this.props.src}
 				resizeMode={this.props.resizeMode || 'cover'}
 				style={[
-					{ width: this.state.width, height: this.state.height },
-					this.props.css
+					this.props.css,
+					{ width: this.state.width, height: this.state.height }
 				]}
 			/>
 		);
