@@ -12,6 +12,10 @@ export const getRandomColors = () => {
 };
 
 export default styles = StyleSheet.create({
+	viewport: {
+		flex: 1,
+		backgroundColor: '#fff',
+	},
 	parent: {
 		flexDirection: 'column',
 		flex: 1,

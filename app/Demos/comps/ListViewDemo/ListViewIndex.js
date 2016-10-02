@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ListView, Image, TouchableHighlight } from 'react-native';
 
+import Navigation from '../../../../comps/Navigation/Navigation';
+
 const GOOSE_PATH = 'http://projects.redgoose.me/2015/goose/demo/';
 const ENDPOINT = 'http://projects.redgoose.me/2015/goose/app/first-gallery/ajax/';
 
@@ -34,8 +36,8 @@ export default class ListViewIndex extends Component {
 			});
 	}
 
-	_onPress(event, srl) {
-		this.props.goComp(1, srl);
+	_onPress(event, srl, title) {
+		this.props.gotoArticle(srl, title);
 	};
 
 	_renderRow(rowData) {
@@ -50,7 +52,9 @@ export default class ListViewIndex extends Component {
 			<TouchableHighlight
 				style={{ flex: 1 }}
 				underlayColor="rgba(0, 0, 0, 0.05)"
-				onPress={ (event) => this._onPress(event, parseInt(rowData.srl)) }>
+				onPress={(event) => {
+					this._onPress(event, parseInt(rowData.srl), rowData.title);
+				}}>
 				<View style={styles.item}>
 					<Image
 						style={styles.thumbnailImage}
@@ -74,7 +78,7 @@ export default class ListViewIndex extends Component {
 		return (
 			<View style={styles.header}>
 				<Text style={styles.headerText}>
-					redgoose.me items
+					redgoose demo items
 				</Text>
 			</View>
 		)
@@ -90,18 +94,30 @@ export default class ListViewIndex extends Component {
 
 	render() {
 		return (
-			<ListView
-				style={{ marginTop: 0 }}
-				dataSource={this.state.dataSource}
-				enableEmptySections={true}
-				renderRow={this._renderRow.bind(this)}
-				renderHeader={this._renderHeader}
-				renderFooter={this._renderFooter}/>
+			<View style={styles.viewport}>
+				<Navigation
+					nav={this.props.nav}
+					isBack="true"
+					title={this.props.nav.route.compName}
+				/>
+				<ListView
+					style={{ marginTop: 0 }}
+					dataSource={this.state.dataSource}
+					enableEmptySections={true}
+					renderRow={this._renderRow.bind(this)}
+					renderHeader={this._renderHeader}
+					renderFooter={this._renderFooter}
+				/>
+			</View>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
+	viewport: {
+		flex: 1,
+		backgroundColor: '#fff',
+	},
 	header: {
 		backgroundColor: '#b31f37',
 		paddingHorizontal: 20,

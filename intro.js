@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Navigator, Image } from 'react-native';
 
-import {Hr} from './Demos/GlobalElements';
 import Tabbar from './comps/Tabbar/Tabbar';
-import Items from './app/Items/Items';
+import Items from './app/Items';
 import CheckList from './app/CheckList/containers/App';
-import Profile from './app/Profile/Profile';
+import Profile from './app/Profile';
+import Demos from './app/Demos'
 
 const buttons = [
 	{ text: 'Items' },
@@ -24,18 +24,19 @@ export default class reactNativeDemo extends Component {
 	}
 
 	selectScene(id) {
+		this.props.updateNavigator(null);
 		switch(id) {
 			case 'Items':
-				return <Items/>;
+				return <Items updateNavigator={this.props.updateNavigator}/>;
 				break;
 			case 'Checklist':
 				return <CheckList/>;
 				break;
 			case 'Profile':
-				return <Profile/>;
+				return <Profile updateNavigator={this.props.updateNavigator}/>;
 				break;
 			case 'Demos':
-				return <Text>comming</Text>;
+				return <Demos updateNavigator={this.props.updateNavigator}/>;
 				break;
 			default:
 				return this.emptyComp();
@@ -62,7 +63,10 @@ export default class reactNativeDemo extends Component {
 				<View style={css.container}>
 					{this.selectScene(this.state.content)}
 				</View>
-				<Tabbar onSelectScene={this.onSelectScene.bind(this)} active={1} buttons={buttons}/>
+				<Tabbar
+					active={2}
+					onSelectScene={this.onSelectScene.bind(this)}
+					buttons={buttons}/>
 			</View>
 		);
 	}

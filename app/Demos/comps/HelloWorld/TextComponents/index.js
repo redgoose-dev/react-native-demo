@@ -11,7 +11,7 @@ export default class TextComponents extends Component {
 			<View style={styles.contents}>
 				<View style={styles.profile}>
 					<Image
-						source={require('../assets/redgoose.png')}
+						source={require('../../../../../assets/redgoose.png')}
 						resizeMode="cover"
 						style={styles.profileImage}
 					/>

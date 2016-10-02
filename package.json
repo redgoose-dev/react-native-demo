@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "run-ios": "react-native run-ios",
-    "run-android": "react-native run-android"
+    "run-android": "react-native run-android",
+    "build" : "cd android && ./gradlew assembleRelease",
+    "build-device" : "cd android && ./gradlew installRelease"
   },
   "dependencies": {
     "react": "15.3.2",

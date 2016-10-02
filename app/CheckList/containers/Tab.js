@@ -75,7 +75,7 @@ const css = StyleSheet.create({
 	},
 	button: {
 		flex: 1,
-		paddingVertical: 7,
+		paddingVertical: 10,
 		borderLeftWidth: StyleSheet.hairlineWidth,
 		borderColor: '#1595A3',
 	},

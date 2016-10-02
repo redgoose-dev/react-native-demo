@@ -41,6 +41,20 @@ export default {
 			"regdate": "0000-00-00",
 			"like": 547,
 			"content": "2014 부산 다대포"
+		},
+		{
+			"img": { uri: 'http://goose.redgoose.me/data/upload/original/201511/rg3608.jpg' },
+			"title": "파란 물탱크",
+			"regdate": "0000-00-00",
+			"like": 23,
+			"content": "2014 부산 다대포"
+		},
+		{
+			"img": { uri: 'http://goose.redgoose.me/data/upload/original/201507/rg3225.jpg' },
+			"title": "작고 빨간 꽃..",
+			"regdate": "0000-00-00",
+			"like": 547,
+			"content": "무슨 꽃인지는 모르겠지만..\n\n2012 대전 한밭수목원"
 		}
 	]
 }

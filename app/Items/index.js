@@ -14,6 +14,10 @@ export default class Items extends Component {
 		}
 	}
 
+	componentDidMount() {
+		this.props.updateNavigator(this.refs.Navigator);
+	}
+
 	onSelectItem(no, navigator) {
 		navigator.push({
 			index: 1,
@@ -46,6 +50,7 @@ export default class Items extends Component {
 	render() {
 		return (
 			<Navigator
+				ref="Navigator"
 				initialRoute={{ title: 'Index', index: 0 }}
 				renderScene={this.scene}
 			/>

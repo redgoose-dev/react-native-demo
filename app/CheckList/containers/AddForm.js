@@ -34,10 +34,7 @@ export default class AddForm extends Component {
 					onChangeText={this.onChangeText.bind(this)}
 					onSubmitEditing={() => {
 						this.onSubmit();
-						console.log(this.refs.addTodo);
-						this.refs.addTodo.focus();
 					}}
-					autoFocus={this.state.focus}
 				/>
 				<TouchableHighlight
 					style={css.button}
@@ -62,6 +59,8 @@ const css = StyleSheet.create({
 		paddingHorizontal: 10,
 		fontSize: 14,
 		color: '#333',
+		margin: 0,
+		padding: 0,
 	},
 	button: {
 		paddingHorizontal: 20,

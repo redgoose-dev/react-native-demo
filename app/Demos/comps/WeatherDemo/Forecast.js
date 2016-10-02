@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Hr } from '../GlobalElements';
+import { Hr } from '../../../../comps/GlobalElements';
 
 class Forecast extends Component {
 	render() {

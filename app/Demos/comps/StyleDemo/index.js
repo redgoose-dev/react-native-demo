@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+import Navigation from '../../../../comps/Navigation/Navigation';
 import styles, { getRandomColors } from './style';
+
 
 export default class FlexDemo extends Component {
 	render() {
@@ -41,7 +43,15 @@ export default class FlexDemo extends Component {
 			</View>
 		);
 
-		return mondrian;
-		// return samples;
+		return (
+			<View style={styles.viewport}>
+				<Navigation
+					nav={this.props.nav}
+					isBack="true"
+					title={this.props.nav.route.compName}
+				/>
+				{mondrian}
+			</View>
+		);
 	}
 }

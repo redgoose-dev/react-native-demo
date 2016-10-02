@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import Navigation from '../../../../comps/Navigation/Navigation';
 import Switch from './Switch';
 
 
@@ -22,9 +23,16 @@ export default class SwitchDemo extends Component {
 		let colorClassName = this.state.val ? styles.appleContainer : styles.bananaContainer;
 
 		return (
-			<View style={[ styles.container, colorClassName ]}>
-				<Text style={styles.welcome}>Hello switch demo</Text>
-				<Switch onValueChange={this._onValueChange.bind(this)}/>
+			<View style={styles.viewport}>
+				<Navigation
+					nav={this.props.nav}
+					isBack="true"
+					title={this.props.nav.route.compName}
+				/>
+				<View style={[ styles.container, colorClassName ]}>
+					<Text style={styles.welcome}>Hello switch demo</Text>
+					<Switch onValueChange={this._onValueChange.bind(this)}/>
+				</View>
 			</View>
 		);
 	}
@@ -32,6 +40,10 @@ export default class SwitchDemo extends Component {
 }
 
 const styles = StyleSheet.create({
+	viewport: {
+		flex: 1,
+		backgroundColor: '#fff',
+	},
 	container: {
 		flex: 1,
 		justifyContent: 'center',

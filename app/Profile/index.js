@@ -20,6 +20,10 @@ export default class Profile extends Component {
 		this.state = {};
 	}
 
+	componentDidMount() {
+		this.props.updateNavigator(this.refs.Navigator);
+	}
+
 	scenes = (route, navigator) => {
 		switch (route.index) {
 			case 0:
@@ -52,6 +56,7 @@ export default class Profile extends Component {
 	render() {
 		return (
 			<Navigator
+				ref="Navigator"
 				initialRoute={routes[0]}
 				renderScene={this.scenes}
 			/>
